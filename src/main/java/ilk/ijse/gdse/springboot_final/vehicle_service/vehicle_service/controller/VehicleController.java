@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/vehicle")
-@CrossOrigin
+@CrossOrigin("*")
 public class VehicleController {
 
     @Autowired
@@ -61,8 +61,8 @@ public class VehicleController {
         return new ResponseUtil(200,"Get All",vehicleService.getAllVehicle());
     }
 
-    @DeleteMapping(params = {"id"},produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil deleteVehicle(@RequestParam String id){
+    @DeleteMapping("/{id}")
+    public ResponseUtil deleteVehicle(@PathVariable(value = "id") String id){
         vehicleService.deleteVehicle(id);
         return new ResponseUtil(200,"Delete Success",null);
     }
@@ -72,5 +72,9 @@ public class VehicleController {
     public ResponseUtil searchVehicle(@PathVariable String id){
         VehicleDto vehicleDto = vehicleService.searchVehicle(id);
         return new ResponseUtil(200,"Search Success",vehicleDto);
+    }
+    @GetMapping("/{id}")
+    public VehicleDto getOneVehicle(@PathVariable(value = "id") String id){
+        return vehicleService.searchVehicle(id);
     }
 }
