@@ -17,7 +17,7 @@ public class VehicleController {
     VehicleService vehicleService;
 
     @PostMapping(consumes =MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveVehicle(@RequestPart String vehicleId, @RequestPart String vehicleBrand,
+    public ResponseUtil saveVehicle( @RequestPart String vehicleBrand,
                                     @RequestPart String category, @RequestPart String fuelType,
                                     @RequestPart String fuelUsage, @RequestPart byte[] frontImage,
                                     @RequestPart byte[] backImage, @RequestPart byte[] sideImage,
@@ -27,7 +27,7 @@ public class VehicleController {
 
         Integer seatCapacity = Integer.parseInt(seats);
 
-        VehicleDto vehicleDto = new VehicleDto(vehicleId,vehicleBrand, category, fuelType,
+        VehicleDto vehicleDto = new VehicleDto(vehicleBrand, category, fuelType,
                 fuelUsage, frontImage, backImage, sideImage, seatCapacity,
                 transmissionType, driverName, contactNo, license);
 

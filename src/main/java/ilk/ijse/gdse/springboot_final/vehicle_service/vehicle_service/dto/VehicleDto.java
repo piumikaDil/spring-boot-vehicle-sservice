@@ -22,7 +22,7 @@ public class VehicleDto {
     private String contactNo;
     private byte[] licenseImage;
 
-   /* public VehicleDto(String vehicleBrand, String category, String fuelType, String fuelUsage, byte[] vehicleImageFront, byte[] vehicleImageBack, byte[] vehicleImageSide, Integer seatCapacity, String transmissionType, String driverName, String contactNo, byte[] licenseImage) {
+    public VehicleDto(String vehicleBrand, String category, String fuelType, String fuelUsage, byte[] vehicleImageFront, byte[] vehicleImageBack, byte[] vehicleImageSide, Integer seatCapacity, String transmissionType, String driverName, String contactNo, byte[] licenseImage) {
         this.vehicleBrand = vehicleBrand;
         this.category = category;
         this.fuelType = fuelType;
@@ -35,5 +35,5 @@ public class VehicleDto {
         this.driverName = driverName;
         this.contactNo = contactNo;
         this.licenseImage = licenseImage;
-    }*/
+    }
 }
