@@ -19,6 +19,7 @@ public class VehicleController {
     @PostMapping(consumes =MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil saveVehicle( @RequestPart String vehicleBrand,
                                     @RequestPart String category, @RequestPart String fuelType,
+                                    @RequestPart double fee_for_day, @RequestPart double fee_for_km,
                                     @RequestPart String fuelUsage, @RequestPart byte[] frontImage,
                                     @RequestPart byte[] backImage, @RequestPart byte[] sideImage,
                                     @RequestPart String seats , @RequestPart String transmissionType ,
@@ -28,7 +29,7 @@ public class VehicleController {
         Integer seatCapacity = Integer.parseInt(seats);
 
         VehicleDto vehicleDto = new VehicleDto(vehicleBrand, category, fuelType,
-                fuelUsage, frontImage, backImage, sideImage, seatCapacity,
+                fuelUsage,fee_for_day,fee_for_km, frontImage, backImage, sideImage, seatCapacity,
                 transmissionType, driverName, contactNo, license);
 
         vehicleService.saveVehicle(vehicleDto);
@@ -38,6 +39,7 @@ public class VehicleController {
     @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateVehicle(@RequestPart String vehicleId,@RequestPart String vehicleBrand,
                                       @RequestPart String category, @RequestPart String fuelType,
+                                      @RequestPart double fee_for_day, @RequestPart double fee_for_km,
                                       @RequestPart String fuelUsage,@RequestPart byte[] frontImage,
                                       @RequestPart byte[] backImage,@RequestPart byte[] sideImage,
                                       @RequestPart String seats ,@RequestPart String transmissionType ,
@@ -47,7 +49,7 @@ public class VehicleController {
         Integer seatCapacity = Integer.parseInt(seats);
 
         VehicleDto vehicleDto = new VehicleDto(vehicleId,vehicleBrand, category, fuelType,
-                fuelUsage, frontImage, backImage, sideImage, seatCapacity,
+                fuelUsage,fee_for_day,fee_for_km, frontImage, backImage, sideImage, seatCapacity,
                 transmissionType, driverName, contactNo, license);
 
         vehicleService.updateVehicle(vehicleDto);
@@ -76,5 +78,13 @@ public class VehicleController {
     @GetMapping("/{id}")
     public VehicleDto getOneVehicle(@PathVariable(value = "id") String id){
         return vehicleService.searchVehicle(id);
+    }
+
+    @GetMapping(params = {"vehicleBrand"})
+    public VehicleDto findByVehicleBrand(String vehicleBrand){
+//        System.out.println("user id "+ name);
+//        System.out.println("user name "+password);
+        return vehicleService.getOneselectedVehivle(vehicleBrand);
+
     }
 }

@@ -13,6 +13,8 @@ public class VehicleDto {
     private String category;
     private String fuelType;
     private String fuelUsage;
+    private double fee_for_day;
+    private double fee_for_km;
     private byte[] vehicleImageFront;
     private byte[] vehicleImageBack;
     private byte[] vehicleImageSide;
@@ -22,11 +24,13 @@ public class VehicleDto {
     private String contactNo;
     private byte[] licenseImage;
 
-    public VehicleDto(String vehicleBrand, String category, String fuelType, String fuelUsage, byte[] vehicleImageFront, byte[] vehicleImageBack, byte[] vehicleImageSide, Integer seatCapacity, String transmissionType, String driverName, String contactNo, byte[] licenseImage) {
+    public VehicleDto(String vehicleBrand, String category, String fuelType, String fuelUsage, double fee_for_day, double fee_for_km, byte[] vehicleImageFront, byte[] vehicleImageBack, byte[] vehicleImageSide, Integer seatCapacity, String transmissionType, String driverName, String contactNo, byte[] licenseImage) {
         this.vehicleBrand = vehicleBrand;
         this.category = category;
         this.fuelType = fuelType;
         this.fuelUsage = fuelUsage;
+        this.fee_for_day = fee_for_day;
+        this.fee_for_km = fee_for_km;
         this.vehicleImageFront = vehicleImageFront;
         this.vehicleImageBack = vehicleImageBack;
         this.vehicleImageSide = vehicleImageSide;

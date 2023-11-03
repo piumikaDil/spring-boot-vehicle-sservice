@@ -62,4 +62,10 @@ public class VehicleServiceImpl implements VehicleService {
         return mapper.map(vehicle,VehicleDto.class);
 
     }
+
+    @Override
+    public VehicleDto getOneselectedVehivle(String vehicleBrand) {
+        Vehicle user = vehicleRepository.getVehicleByVehicleBrand(vehicleBrand);
+        return mapper.map(user,VehicleDto.class);
+    }
 }

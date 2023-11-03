@@ -20,6 +20,8 @@ public class Vehicle {
     private String category;
     private String fuelType;
     private String fuelUsage;
+    private double fee_for_day;
+    private double fee_for_km;
 
     private byte[] vehicleImageFront;
 

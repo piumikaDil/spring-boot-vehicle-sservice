@@ -11,7 +11,7 @@ public interface VehicleService {
     void deleteVehicle(String id);
     List<VehicleDto> getAllVehicle();
     VehicleDto searchVehicle(String id);
-
+VehicleDto getOneselectedVehivle(String vehicleBrand);
 
 
 }
